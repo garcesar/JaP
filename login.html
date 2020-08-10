@@ -12,40 +12,27 @@
   <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
   <!-- Bootstrap core CSS -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
-  <link href="css/styles.css" rel="stylesheet">
-  <style>
-    html, body{
-      height: 100%;
-    }
-
-    body {
-      display: -ms-flexbox;
-      display: flex;
-      -ms-flex-align: center;
-      align-items: center;
-      padding-top: 40px;
-      padding-bottom: 40px;
-      background-color: #f5f5f5;
-    }
-
-    .signin {
-      width: 100%;
-      max-width: 330px;
-      padding: 15px;
-      margin: auto;
-    }
-  </style>
+  <link href="css/styles-login.css" rel="stylesheet">
 </head>
 
 <body class="text-center">
-  <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 1 (Fecha de entrega: 16/08/2020) -> Punto 3 y 4.</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
+  
+  <form class="form-signin">
+    <img class="mb-4" src="img/login.png" alt="login" width="250" height="100">
+    <h1 class="h3 mb-3 font-weight-normal">Por favor ingrese</h1>
+    <label for="inputEmail" class="sr-only">Correo Electrónico</label>
+    <input type="email" id="inputEmail" class="form-control" placeholder="Correo Electrónico" required autofocus>
+    <label for="inputPassword" class="sr-only">Contraseña</label>
+    <input type="password" id="inputPassword" class="form-control" placeholder="Contraseña" required>
+    <div class="checkbox mb-3">
+      <label>
+        <input type="checkbox" value="remember-me"> Recuerdame
+      </label>
     </div>
-  </div>
+
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Ingrese</button>
+    <p class="mt-5 mb-3 text-muted">&copy; 2020</p>
+  </form>
 
   <script src="js/init.js"></script>
   <script src="js/login.js"></script>

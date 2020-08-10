@@ -15,6 +15,8 @@ var hideSpinner = function(){
   document.getElementById("spinner-wrapper").style.display = "none";
 }
 
+// Funcion para traer datos JSON desde una url
+
 var getJSONData = function(url){
     var result = {};
     showSpinner();
@@ -40,8 +42,12 @@ var getJSONData = function(url){
     });
 }
 
+getJSONData(PRODUCTS_URL);
+
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function(e){
+
 });
+
