@@ -1,9 +1,9 @@
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
-var categoriesArray = [];
+var productsArray = [];
 
-function showCategoriesList(array){
+function showProductsList(array){
 
     let htmlContentToAppend = "";
     for(let i = 0; i < array.length; i++){
@@ -29,7 +29,7 @@ function showCategoriesList(array){
         </div>
         `
     }
-    document.getElementById("cat-list-container").innerHTML = htmlContentToAppend;
+    document.getElementById("prod-list-container").innerHTML = htmlContentToAppend;
 }
 
 showSpinner();
@@ -37,9 +37,9 @@ document.addEventListener("DOMContentLoaded", function (e) {
     getJSONData(PRODUCTS_URL).then(function(resultObj){
         if (resultObj.status === "ok")
         {
-            categoriesArray = resultObj.data;
+            productsArray = resultObj.data;
             //Muestro las categorías ordenadas
-            showCategoriesList(categoriesArray);
+            showProductsList(productsArray);
         }
         hideSpinner();
     });

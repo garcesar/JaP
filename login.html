@@ -19,18 +19,17 @@
   
   <form class="form-signin">
     <img class="mb-4" src="img/login.png" alt="login" width="250" height="100">
-    <h1 class="h3 mb-3 font-weight-normal">Por favor ingrese</h1>
-    <label for="inputEmail" class="sr-only">Correo Electrónico</label>
-    <input type="email" id="inputEmail" class="form-control" placeholder="Correo Electrónico" required autofocus>
-    <label for="inputPassword" class="sr-only">Contraseña</label>
-    <input type="password" id="inputPassword" class="form-control" placeholder="Contraseña" required>
-    <div class="checkbox mb-3">
-      <label>
-        <input type="checkbox" value="remember-me"> Recuerdame
-      </label>
-    </div>
+    <h1 class="h3 mb-3 font-weight-normal">¡Hola! ingresa usuario y contraseña</h1>
 
-    <button class="btn btn-lg btn-primary btn-block" type="submit">Ingrese</button>
+    <label for="name" class="sr-only">Nombre</label>
+    <input type="text" id="name" class="form-control" placeholder="Usuario" required autofocus>
+
+    <label for="inputPassword" class="sr-only">Contraseña</label>
+    <input type="password" id="password" class="form-control" placeholder="Contraseña" required>
+    
+    <button onclick="save_sessionStorage()" type="button" class="btn btn-lg btn-primary btn-block">Registrate</button>
+    
+    <button onclick="get_sessionStorage()" type="button" class="btn btn-lg btn-primary btn-block">Inicio de sesión</button>
     <p class="mt-5 mb-3 text-muted">&copy; 2020</p>
   </form>
 
