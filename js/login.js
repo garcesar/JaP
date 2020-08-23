@@ -1,12 +1,4 @@
-//Función que se ejecuta una vez que se haya lanzado el evento de
-//que el documento se encuentra cargado, es decir, se encuentran todos los
-//elementos HTML presentes.
-document.addEventListener("DOMContentLoaded", function(e){
-
-});
-
 // Función que guarda los datos ingresados por el usuario en variable "user" y "pass".
-
 function save_sessionStorage() {
     let user = document.getElementById("name").value;
     sessionStorage.setItem("name", user);
@@ -38,3 +30,8 @@ function get_sessionStorage() {
 function rediret(){
         window.location.href = "index.html";
 }
+
+// Muestra el usuario en la barra de nav
+const imp = document.getElementById('user');
+var userLogin = sessionStorage.getItem("name");
+imp.innerHTML = userLogin ;
