@@ -51,7 +51,7 @@ function showProductsList(){
             ((maxCount == undefined) || (maxCount != undefined && parseInt(product.soldCount) <= maxCount))){
 
             htmlContentToAppend += `
-            <a href="category-info.html" class="list-group-item list-group-item-action">
+            <a href="product-info.html" class="list-group-item list-group-item-action">
                 <div class="row">
                     <div class="col-3">
                         <img src="` + product.imgSrc + `" alt="` + product.description + `" class="img-thumbnail">
