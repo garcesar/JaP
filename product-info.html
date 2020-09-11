@@ -59,31 +59,71 @@
 
         <dt>Imágenes ilustrativas</dt>
         <dd>
-          <div class="row text-center text-lg-left pt-2" id="productImagesGallery">
+          <div class="row text-center text-lg-left pt-2" id="product-image-container">
           </div>
         </dd>
+        
+        <dt>Productos relacionados: </dt>
+        <dd>
+          <div class="row text-center text-lg-left pt-2" id="product-related-container">
+          </div>
+        </dd>
+        <hr>
+        <!--
+        <dt>
+          <label for="textarea">Califación:</label>
+          <dd>
+            <div>
+              <textarea name="textarea" id="new-comment" rows="3" cols="70" maxlength="50" placeholder="Ingrese un comentario"></textarea>
+            </div>
+          </br>
+            <div>
+                <label for="score">Califación:</label>
+                <select id="score">
+                  <option value="" disabled selected>-- Seleccione Puntaje -- </option> 
+                  <option value="1">Inconforme</option>
+                  <option value="2">Poco conforme</option>
+                  <option value="2">Conforme</option>
+                  <option value="2">Muy conforme</option>
+                  <option value="2">Cumple las expectativas</option>
+                </select>
+            </div>
+            <input type="submit" id="comment-send" value="Enviar"/>
+          </dd>
+        </dt>
+        -->
+        <form action="" metho="POST" id="my-form">
+          <textarea name="textarea" id="new-comment" rows="3" cols="70" maxlength="50" placeholder="Ingrese un comentario"></textarea>
+          <p>
+            <label for="score">Califación:</label>
+                <select id="score">
+                  <option value="" disabled selected>-- Seleccione Puntaje -- </option> 
+                  <option value="1">Inconforme</option>
+                  <option value="2">Poco conforme</option>
+                  <option value="2">Conforme</option>
+                  <option value="2">Muy conforme</option>
+                  <option value="2">Cumple las expectativas</option>
+                </select>
+          </p>
+        </br>
+          <p>
+            <input type="submit" class="btn btn-primary" id="comment-send"/>
+          </p>
+        </form>
+        <hr>
+        
+        <dt>Opiniones sobre el producto:</dt>
+        </br>
 
-        <dt>Productos relacionados</dt>
-        <dd>
-          <div class="row text-center text-lg-left pt-2" id="productRelated">
+        <div class="row">
+          <div class="list-group" id="prod-comment-container">
           </div>
-        </dd>
-
-        <dt> Comentarios</dt>
-        <dd>
-          <div class="row text-center text-lg-left pt-2" id="commentDescription"> 
-          </div>
-        </dd>
-        <dd>
-          <div class="row text-center text-lg-left pt-2" id="commentUser">
-          </div>
-        </dd>
-        <dd>
-          <div class="row text-center text-lg-left pt-2" id=commentDataTime>
         </div>
-        </dd>
+        </br>
+
       </dl>
     </div>
+
   </main>
   <footer class="text-muted">
     <div class="container">
