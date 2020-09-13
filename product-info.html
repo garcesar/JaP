@@ -69,47 +69,26 @@
           </div>
         </dd>
         <hr>
-        <!--
-        <dt>
-          <label for="textarea">Califación:</label>
-          <dd>
-            <div>
-              <textarea name="textarea" id="new-comment" rows="3" cols="70" maxlength="50" placeholder="Ingrese un comentario"></textarea>
-            </div>
-          </br>
-            <div>
-                <label for="score">Califación:</label>
-                <select id="score">
-                  <option value="" disabled selected>-- Seleccione Puntaje -- </option> 
-                  <option value="1">Inconforme</option>
-                  <option value="2">Poco conforme</option>
-                  <option value="2">Conforme</option>
-                  <option value="2">Muy conforme</option>
-                  <option value="2">Cumple las expectativas</option>
-                </select>
-            </div>
-            <input type="submit" id="comment-send" value="Enviar"/>
-          </dd>
-        </dt>
-        -->
-        <form action="" metho="POST" id="my-form">
-          <textarea name="textarea" id="new-comment" rows="3" cols="70" maxlength="50" placeholder="Ingrese un comentario"></textarea>
-          <p>
-            <label for="score">Califación:</label>
-                <select id="score">
-                  <option value="" disabled selected>-- Seleccione Puntaje -- </option> 
-                  <option value="1">Inconforme</option>
-                  <option value="2">Poco conforme</option>
-                  <option value="2">Conforme</option>
-                  <option value="2">Muy conforme</option>
-                  <option value="2">Cumple las expectativas</option>
-                </select>
-          </p>
+        <dt> Califica este vehiculo: </dt>
         </br>
-          <p>
-            <input type="submit" class="btn btn-primary" id="comment-send"/>
-          </p>
-        </form>
+          <form method="POST" name="comment-form" id="comment-form">
+            
+            <textarea name="textarea" id="new_comment" rows="3" cols="70" maxlength="150" placeholder="Ingrese un comentario"></textarea>
+            
+            <div class="form-inline">
+                  <select class="form-control form-control-sm" id="score">
+                    <option value="" disabled selected>-- Seleccione Puntaje -- </option> 
+                    <option value="1">Inconforme</option>
+                    <option value="2">Poco conforme</option>
+                    <option value="3">Conforme</option>
+                    <option value="4">Muy conforme</option>
+                    <option value="5">Cumple las expectativas</option>
+                  </select>
+            </div>
+            
+            </br>
+            <button onclick="up_comment()" type="button" class="btn btn-primary" id="comment-send"> Enviar </button>
+          </form>
         <hr>
         
         <dt>Opiniones sobre el producto:</dt>
@@ -146,6 +125,7 @@
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/init.js"></script>
   <script src="js/product-info.js"></script>
+  <script src="js/commentAdd.js"></script>
 </body>
 
 </html>
