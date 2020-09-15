@@ -36,3 +36,8 @@
     var userLogin = sessionStorage.getItem("name");
     imp.innerHTML = userLogin ;
 
+// Función que remueve los item de sessionStorage almacenados
+    function remove(){
+        sessionStorage.removeItem("name");
+        sessionStorage.removeItem("password");
+    }

@@ -21,8 +21,15 @@
       <a class="py-2 d-none d-md-inline-block" href="index.html">Inicio</a>
       <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
       <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
-      <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
-      <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
+      <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="user" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="cart.html">Mi Carrito</a>
+            <a class="dropdown-item" href="my-profile.html">Mi Perfil</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="login.html" onclick="remove()">Cerrar Sesión</a>
+          </div>
+      </div>
     </div>
   </nav>
   <main role="main">
@@ -62,13 +69,9 @@
           <div class="row text-center text-lg-left pt-2" id="product-image-container">
           </div>
         </dd>
-        
-        <dt>Productos relacionados: </dt>
-        <dd>
-          <div class="row text-center text-lg-left pt-2" id="product-related-container">
-          </div>
-        </dd>
+
         <hr>
+
         <dt> Califica este vehiculo: </dt>
         </br>
           <form method="POST" name="comment-form" id="comment-form">
@@ -89,9 +92,11 @@
             </br>
             <button onclick="up_comment()" type="button" class="btn btn-primary" id="comment-send"> Enviar </button>
           </form>
-        <hr>
         
+        </br>
+
         <dt>Opiniones sobre el producto:</dt>
+        
         </br>
 
         <div class="row">
@@ -101,6 +106,14 @@
         </br>
 
       </dl>
+      
+      </br>
+
+      <dt>Productos relacionados: </dt>
+        <dd>
+          <div class="row text-center text-lg-left pt-2" id="product-related-container">
+          </div>
+        </dd>
     </div>
 
   </main>
@@ -125,7 +138,7 @@
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/init.js"></script>
   <script src="js/product-info.js"></script>
-  <script src="js/commentAdd.js"></script>
+  <script src="js/login.js"></script>
 </body>
 
 </html>

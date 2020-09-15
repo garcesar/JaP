@@ -2,14 +2,14 @@ var product = {};
 var productComment = {};
 var productRelated = {};
 
-//Funtion que muestra la galeria de productos
+// Función que muestra la galeria de productos
     function showImagesGallery(array){
 
         let htmlContentToAppend = "";
 
         for(let i = 0; i < array.length; i++){
             let imageSrc = array[i];
-
+            
             htmlContentToAppend += `
             <div class="col-lg-3 col-md-4 col-6">
                 <div class="d-block mb-4 h-100">
@@ -17,12 +17,12 @@ var productRelated = {};
                 </div>
             </div>
             `
-
+           
             document.getElementById("product-image-container").innerHTML = htmlContentToAppend;
         }
     }
 
-// Funtion que muestra los productos relacionados
+// Función que muestra los productos relacionados
     function showRelated(array){
 
         let htmlContentToAppend = "";
@@ -32,11 +32,21 @@ var productRelated = {};
 
             if(related.imgSrc === "img/prod2.jpg"){
                 htmlContentToAppend += `
-                <div class="col-lg-3 col-md-4 col-6">
-                    <div class="d-block mb-4 h-100">
-                        <img class="img-fluid img-thumbnail" src="` + related.imgSrc + `" alt="">
+                <a href="products.html" class="list-group-item list-group-item-action">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-4 col-6">
+                            <div class="d-block mb-4 h-100">
+                                <img class="img-fluid img-thumbnail" src="` + related.imgSrc + `" alt="">
+                            </div>
+                        </div>
+                        <div class="col">
+                                <div class="d-flex w-100 justify-content-between">
+                                    <h4 class="mb-1">`+ related.name +`</h4>
+                                </div>
+                                <p class="mb-1">` + related.description + `</p>
+                        </div>
                     </div>
-                </div>
+                </a>
                 `
             }     
         }
@@ -46,11 +56,21 @@ var productRelated = {};
 
             if(related.imgSrc === "img/prod4.jpg"){
                 htmlContentToAppend += `
-                <div class="col-lg-3 col-md-4 col-6">
-                    <div class="d-block mb-4 h-100">
-                        <img class="img-fluid img-thumbnail" src="` + related.imgSrc + `" alt="">
+                <a href="products.html" class="list-group-item list-group-item-action">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-4 col-6">
+                            <div class="d-block mb-4 h-100">
+                                <img class="img-fluid img-thumbnail" src="` + related.imgSrc + `" alt="">
+                            </div>
+                        </div>
+                        <div class="col">
+                                <div class="d-flex w-100 justify-content-between">
+                                    <h4 class="mb-1">`+ related.name +`</h4>
+                                </div>
+                                <p class="mb-1">` + related.description + `</p>
+                        </div>
                     </div>
-                </div>
+                </a>
                 `
             }     
         }
@@ -91,7 +111,7 @@ var productRelated = {};
             if (resultObj.status === "ok")
             {
                 productRelated = resultObj.data;
-// Function que muestra la relación de los productos
+// Función que muestra la relación de los productos
                 showRelated(productRelated);
             }
         });    
@@ -107,7 +127,7 @@ var productRelated = {};
         }
     }); 
 
-//Funtion que lista los comentarios
+//Función que lista los comentarios
     function showComments(array){
 
         let htmlContentToAppend = "";
@@ -140,10 +160,10 @@ var productRelated = {};
         }
         document.getElementById("prod-comment-container").innerHTML = htmlContentToAppend;
     }
-// Funtion que guarda los datos del formulario para un nuevo comentario
+// Función que guarda los datos del formulario para un nuevo comentario
 // Se almacena en sessionStorage
-// Se realiza un push cobre el array de los comentarios del JSON
-// Se llama a la funtion que lista los comentarios
+// Se realiza un push sobre el array de los comentarios del JSON
+// Se llama a la Función que lista los comentarios
 
 function up_comment(){    
 
