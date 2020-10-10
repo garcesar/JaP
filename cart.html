@@ -11,7 +11,6 @@
 
   <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
   <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
-
   <style>
     .bd-placeholder-img {
       font-size: 1.125rem;
@@ -52,13 +51,133 @@
     </div>
   </nav>
   <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 5 (Fecha de entrega: 11/10/2020) y Entrega 6 (Fecha de entrega: 25/10/2020).</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
-    </div>
   </div>
+
+  <main role="main">
+    <div class="container mt-5">
+      <div class="text-center p-4">
+        <h2>Carrito de Compras</h2>
+        <p class="lead"> </p>
+        <p class="small alert-warning py-3"> SE LISTAN LOS ARTICULOS EN EL CARRITO:</p>
+      </div>
+
+        <dd>
+          <div class="row text-center text-lg-left pt-2" id="article-container">
+          </div>
+        </dd>
+        <hr>
+      </dl>
+
+<!--Tabla que lista los productos del carrito-->
+
+    <table class="table">
+      <thead class="alert-success">
+        <tr>
+          <th scope="col"></th>
+          <th scope="col">Articulos</th>
+          <th scope="col">Precio unitario</th>
+          <th scope="col">Cantidad</th>
+          <th scope="col">Sub Total</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr>
+          <td><img id="img" src="img/tree1.jpg" width="100" height="100" class="img-thumbnail"></td>
+              <th scope="row" id="art1"></th>
+              <td id="costUnit1"></td>
+              <td><input id="number1" type="number" class="center"  style="height: 30px; width: 40px;"
+              type="form-control" min="0" value=""></td>
+              <td id="subTotal"></td>
+          </tr>
+          <tr>
+            <td><img id="img2" src="img/prod3.jpg" width="100" height="100" class="img-thumbnail"></td>
+                <th scope="row" id="art2"></th>
+                <td id="costUnit2"></td>
+                <td><input id="number2"  type="number" class="center"  style="height: 30px; width: 40px;"
+                type="form-control" min="0" value=""></td>
+                <td id="subTotal2" ></td>
+          </tr>   
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td><strong>TOTAL (UYU): </strong></td>
+            <td id="total"></td>
+          </tr>
+        </tbody>
+    </table>
+
+<!--Formulario de envio-->
+    <form class="needs-validation" id="sell-info">
+      <div>
+        <h5 class="mb-3">Forma de envio / Retiro de mercadería</h5>
+          <div class="d-block my-3">
+            <div class="custom-control custom-radio">
+              <input id="express" name="publicationType" type="radio" class="custom-control-input" checked="" required="">
+              <label class="custom-control-label" for="express">Express</label>
+            </div>
+            <div class="custom-control custom-radio">
+              <input id="basic" name="publicationType" type="radio" class="custom-control-input" required="">
+              <label class="custom-control-label" for="basic">Basico</label>
+            </div>
+            <div class="custom-control custom-radio">
+              <input id="pickup" name="publicationType" type="radio" class="custom-control-input" required="">
+              <label class="custom-control-label" for="pickup">Retiro en el local</label>
+            </div>
+            <div class="row">
+              <button type="button" class="m-1 btn btn-link" data-toggle="modal" data-target="#contidionsModal">Ver condiciones</button>
+            </div>
+
+            <h5 class="mb-3">Información de envio</h5>
+            
+            <div class="col-md-6 mb-3">
+              <label for="shippingName">Nombre</label>
+              <input type="text" class="form-control" id="shippingName" placeholder="" value="" >
+              <div class="invalid-feedback">
+                Ingresa un nombre
+              </div>
+              <label for="shippingLname">Apellido</label>
+              <input type="text" class="form-control" id="shippingLname" placeholder="" value="" >
+              <div class="invalid-feedback">
+                Ingresa un apellido
+              </div>
+              <label for="phoneNumber">Teléfono</label>
+              <input type="tel" class="form-control" id="phoneNumber" pattern="(+[0-9]{2})[0-9]{9}" placeholder="" value="" >
+              <div class="invalid-feedback">
+                Ingresa un teléfono de contacto
+              </div>
+            </div>
+
+              <hr class="mb-4">
+              <h4 class="mb-3">Costos</h4>
+              <ul class="list-group mb-3">
+                <li class="list-group-item d-flex justify-content-between lh-condensed">
+                  <div>
+                    <h6 class="my-0">Precio</h6>
+                    <small class="text-muted">Total de los productos agregados al carrito</small>
+                  </div>
+                  <span class="text-muted" id="productCostText">-</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between lh-condensed">
+                  <div>
+                    <h6 class="my-0">Costo de envio</h6>
+                    <small class="text-muted">Según el tipo</small>
+                  </div>
+                  <span class="text-muted" id="comissionText">-</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between">
+                  <span>Total (UYU)</span>
+                  <strong id="totalCostText">-</strong>
+                </li>
+              </ul>
+              <hr class="mb-4">
+              <button class="btn btn-primary btn-lg" type="submit">Finalizar Compra</button>
+            </div>
+        </div>
+    </form>
+  </main>
+
+
   <div id="spinner-wrapper">
     <div class="lds-ring">
       <div></div>
@@ -74,5 +193,4 @@
   <script src="js/cart.js"></script>
   <script src="js/login.js"></script>
 </body>
-
 </html>
