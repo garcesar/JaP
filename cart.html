@@ -101,8 +101,8 @@
             <td></td>
             <td></td>
             <td></td>
-            <td><strong>TOTAL (UYU): </strong></td>
-            <td id="total"></td>
+            <td></td>
+            <td></td>
           </tr>
         </tbody>
     </table>
@@ -110,44 +110,52 @@
 <!--Formulario de envio-->
     <form class="needs-validation" id="sell-info">
       <div>
-        <h5 class="mb-3">Forma de envio / Retiro de mercadería</h5>
+        <h5 class="mb-3"><strong>Formas de envio:</strong></h5>
           <div class="d-block my-3">
             <div class="custom-control custom-radio">
-              <input id="express" name="publicationType" type="radio" class="custom-control-input" checked="" required="">
-              <label class="custom-control-label" for="express">Express</label>
+              <input id="premiumradio" name="publicationType" type="radio" class="custom-control-input" checked="" required="">
+              <label class="custom-control-label" for="premiumradio">Premium de 2 a 5 días (15%)</label>
             </div>
             <div class="custom-control custom-radio">
-              <input id="basic" name="publicationType" type="radio" class="custom-control-input" required="">
-              <label class="custom-control-label" for="basic">Basico</label>
+              <input id="expressradio" name="publicationType" type="radio" class="custom-control-input" required="">
+              <label class="custom-control-label" for="expressradio">Express de 5 a 8 días (7%)</label>
             </div>
             <div class="custom-control custom-radio">
-              <input id="pickup" name="publicationType" type="radio" class="custom-control-input" required="">
-              <label class="custom-control-label" for="pickup">Retiro en el local</label>
+              <input id="standardradio" name="publicationType" type="radio" class="custom-control-input" required="">
+              <label class="custom-control-label" for="standardradio">Standard de 12 a 15 días (5%)</label>
             </div>
             <div class="row">
               <button type="button" class="m-1 btn btn-link" data-toggle="modal" data-target="#contidionsModal">Ver condiciones</button>
             </div>
 
-            <h5 class="mb-3">Información de envio</h5>
-            
-            <div class="col-md-6 mb-3">
-              <label for="shippingName">Nombre</label>
-              <input type="text" class="form-control" id="shippingName" placeholder="" value="" >
-              <div class="invalid-feedback">
-                Ingresa un nombre
-              </div>
-              <label for="shippingLname">Apellido</label>
-              <input type="text" class="form-control" id="shippingLname" placeholder="" value="" >
-              <div class="invalid-feedback">
-                Ingresa un apellido
-              </div>
-              <label for="phoneNumber">Teléfono</label>
-              <input type="tel" class="form-control" id="phoneNumber" pattern="(+[0-9]{2})[0-9]{9}" placeholder="" value="" >
-              <div class="invalid-feedback">
-                Ingresa un teléfono de contacto
-              </div>
+            <h5 class="mb-3"><strong>Dirección de envio:</strong></h5>
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <label for="shippingName">Calle:</label>
+                  <input type="text" class="form-control" id="shippingName" placeholder="" required="" value="">
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label for="shippingE">Esquina:</label>
+                  <input type="text" class="form-control" id="shippingE" placeholder="" required="" value="" >
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label for="numberDoor">Número de Puerta:</label>
+                  <input type="number" class="form-control" id="numberDoor" placeholder="" required="" value="" >
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label for="phoneNumber">Teléfono de contacto:</label>
+                  <!--Probar lo requerido en numero de telefooc-->
+                  <input type="tel" class="form-control" id="phoneNumber" pattern="(+[0-9]{2})[0-9]{9}" placeholder="" required="" value="">
+                </div>
             </div>
 
+            <h5 class="mb-3"><strong>Metodo de pago:</strong></h5>
+            <strong id="shippingMethod"></strong>
+            <div class="row">
+              <button type="button" class="m-1 btn btn-link" data-toggle="modal" data-target="#contidionsModal">Seleccionar</button>
+            </div>
+
+            <div>
               <hr class="mb-4">
               <h4 class="mb-3">Costos</h4>
               <ul class="list-group mb-3">
@@ -163,11 +171,11 @@
                     <h6 class="my-0">Costo de envio</h6>
                     <small class="text-muted">Según el tipo</small>
                   </div>
-                  <span class="text-muted" id="comissionText">-</span>
+                  <span class="text-muted" id="envioCost">-</span>
                 </li>
                 <li class="list-group-item d-flex justify-content-between">
                   <span>Total (UYU)</span>
-                  <strong id="totalCostText">-</strong>
+                  <strong id="totalCost">-</strong>
                 </li>
               </ul>
               <hr class="mb-4">
@@ -177,6 +185,40 @@
     </form>
   </main>
 
+<!--MODAL-->
+<div class="modal fade" tabindex="-1" role="dialog" id="contidionsModal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Condiciones de publicación</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="container">
+            <div class="row">
+                <h5 class="text-warning">Gold (13%)</h5>
+                <p class="muted text-justify">Tu producto se verá de forma promocionada en portada, además de las condiciones de Premium y Estándar.</p>
+            </div>
+            <hr>
+            <div class="row">
+                <h5 class="text-primary">Stándar (7%)</h5>
+                <p class="muted text-justify">Se mostrará el producto en los primeros lugares de resultados de búsqueda, así cómo cuando se ingrese a la categoría que pertenezca.</p>
+            </div>
+            <hr>
+            <div class="row">
+                <h5 class="text-secondary">Estándar (3%)</h5>
+                <p class="muted text-justify">El producto se listará en la categoría correspondiente, así como en los resultados de búsquedas que coincidan con las palabras claves en el nombre.</p>
+            </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
 
   <div id="spinner-wrapper">
     <div class="lds-ring">
