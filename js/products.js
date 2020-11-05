@@ -5,6 +5,8 @@ var currentProductArray = [];
 var currentSortCriteria = undefined;
 var minCount = undefined;
 var maxCount = undefined;
+var alto =$(window).height();
+var ancho =$(window).width();
 
 // Comienzo de filtrado
     function sortCategories(criteria, array){
@@ -42,15 +44,15 @@ var maxCount = undefined;
         return result;
     }
 
+//Función que muestra los productos.
     function showProductsList(){
-
         let htmlContentToAppend = "";
         for(let i = 0; i < currentProductArray.length; i++){
             let product = currentProductArray[i];
 
             if (((minCount == undefined) || (minCount != undefined && parseInt(product.soldCount) >= minCount)) &&
                 ((maxCount == undefined) || (maxCount != undefined && parseInt(product.soldCount) <= maxCount))){
-
+                
                 htmlContentToAppend += `
                 <a href="product-info.html" class="list-group-item list-group-item-action">
                     <div class="row">
@@ -67,12 +69,52 @@ var maxCount = undefined;
                         </div>
                     </div>
                 </a>
+                ` 
+            }
+
+            document.getElementById("prod-list-container").innerHTML = htmlContentToAppend;
+        }
+    }
+
+//Función que muestra los productos en formato de grilla cuando la pagina se redimensiona
+    function showProductsList_redimen(){
+
+        let htmlContentToAppend = "";
+        for(let i = 0; i < currentProductArray.length; i++){
+            let product = currentProductArray[i];
+
+            if (((minCount == undefined) || (minCount != undefined && parseInt(product.soldCount) >= minCount)) &&
+                ((maxCount == undefined) || (maxCount != undefined && parseInt(product.soldCount) <= maxCount))){
+          
+                htmlContentToAppend += `
+                <a href="product-info.html" class="list-group-item list-group-item-action">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm">
+                            <img src="` + product.imgSrc + `" alt="` + product.description + `" class="img-thumbnail">
+                            <h4 class="mb-1">`+ product.name +`</h4>
+                            <small class="text-muted">` + product.soldCount + ` artículos</small>
+                            <p class="mb-1">` + product.description + `</p>
+                            <p class ="mb-1"> `+ product.cost + ' ' + product.currency + ` </p>
+                        </div>
+                    </div>
+                </div>
+                </a>
                 `
             }
 
             document.getElementById("prod-list-container").innerHTML = htmlContentToAppend;
         }
     }
+
+    $(window).resize(function(){
+        //aqui el codigo que se ejecutara cuando se redimencione la ventana
+        alto=$(window).height();
+        ancho=$(window).width();
+        showProductsList_redimen();
+        //alert("alto: "+alto+" ancho:"+ancho);
+        })
+
 // Spinner
     showSpinner();
     document.addEventListener("DOMContentLoaded", function (e) {
@@ -97,9 +139,14 @@ var maxCount = undefined;
         }
 
         currentProductArray = sortCategories(currentSortCriteria, currentProductArray);
-
+        
+        //Aqui el codigo que se ejecutara cuando se redimencione la ventana
         //Muestro las categorías ordenadas
-        showProductsList();
+        if(alto <= 989 && ancho <= 508){
+            showProductsList_redimen();
+        }else{
+            showProductsList();
+        }
     }
 
 //Función que se ejecuta una vez que se haya lanzado el evento de
@@ -131,7 +178,13 @@ var maxCount = undefined;
             minCount = undefined;
             maxCount = undefined;
 
-            showProductsList();
+            //Aqui el codigo que se ejecutara cuando se redimencione la ventana
+            //Muestro las categorías ordenadas
+            if(alto <= 989 && ancho <= 508){
+                showProductsList_redimen();
+            }else{
+                showProductsList();
+            }
         });
 
         document.getElementById("rangeFilterCount").addEventListener("click", function(){
@@ -154,6 +207,12 @@ var maxCount = undefined;
                 maxCount = undefined;
             }
 
-            showProductsList();
+            //Aqui el codigo que se ejecutara cuando se redimencione la ventana
+            //Muestro las categorías ordenadas
+            if(alto <= 989 && ancho <= 508){
+                showProductsList_redimen();
+            }else{
+                showProductsList();
+            }
         });
     });
