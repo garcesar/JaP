@@ -115,6 +115,14 @@ var ancho =$(window).width();
         //alert("alto: "+alto+" ancho:"+ancho);
         })
 
+    function navResponsive(){
+        var ancla = document.getElementsByClassName('nav-enlace');
+        
+        for (var i=0; i < ancla.length; i++){
+            ancla[i].classList.toggle('ocult');
+        }
+    }
+
 // Spinner
     showSpinner();
     document.addEventListener("DOMContentLoaded", function (e) {
@@ -130,7 +138,6 @@ var ancho =$(window).width();
     });
 
 // Continua el filtrado
-
     function sortAndShowCategories(sortCriteria, categoriesArray){
         currentSortCriteria = sortCriteria;
 
