@@ -47,31 +47,61 @@ var ancho =$(window).width();
 //Función que muestra los productos.
     function showProductsList(){
         let htmlContentToAppend = "";
-        for(let i = 0; i < currentProductArray.length; i++){
-            let product = currentProductArray[i];
+        for(let i = 0; i < 1; i++){
+            let product = currentProductArray;
 
             if (((minCount == undefined) || (minCount != undefined && parseInt(product.soldCount) >= minCount)) &&
                 ((maxCount == undefined) || (maxCount != undefined && parseInt(product.soldCount) <= maxCount))){
-                
-                htmlContentToAppend += `
-                <a href="product-info.html" class="list-group-item list-group-item-action">
+            
+               htmlContentToAppend += `
+               
+                <div class="container">
                     <div class="row">
-                        <div class="col-3">
-                            <img src="` + product.imgSrc + `" alt="` + product.description + `" class="img-thumbnail">
+                        <div class="col-sm">
+                            <a href="product-info.html" class="list-group-item list-group-item-action">
+                                <img src="` + product[0].imgSrc + `" alt="` + product[0].description + `" class="img-thumbnail">
+                            </a>
+                            <h4 class="mb-1">`+ product[0].name +`</h4> 
+                            <small class="text-muted">` + currentProductArray[0].soldCount + ` artículos</small>
+                            </br>
+                            ` + product[0].description +`
+                            <p> `+ product[0].cost + ' ' + product[0].currency + ` </p>
                         </div>
-                        <div class="col">
-                            <div class="d-flex w-100 justify-content-between">
-                                <h4 class="mb-1">`+ product.name +`</h4>
-                                <small class="text-muted">` + product.soldCount + ` artículos</small>
-                            </div>
-                            <p class="mb-1">` + product.description + `</p>
-                            <p class ="mb-1"> `+ product.cost + ' ' + product.currency + ` </p>
+                        <div class="col-sm">
+                            <a href="product-info.html" class="list-group-item list-group-item-action">
+                                <img src="` + product[1].imgSrc + `" alt="` + product[1].description + `" class="img-thumbnail">
+                            </a>
+                            <h4 class="mb-1">`+ product[1].name +`</h4> 
+                            <small class="text-muted">` + currentProductArray[1].soldCount + ` artículos</small>
+                            </br>
+                            ` + product[1].description +`
+                            <p> `+ product[1].cost + ' ' + product[1].currency + ` </p>
+                        </div>
+                        <div class="col-sm">
+                            <a href="product-info.html" class="list-group-item list-group-item-action">
+                                <img src="` + product[2].imgSrc + `" alt="` + product[2].description + `" class="img-thumbnail">
+                            </a>
+                            <h4 class="mb-1">`+ product[2].name +`</h4> 
+                            <small class="text-muted">` + currentProductArray[2].soldCount + ` artículos</small>
+                            </br>
+                            ` + product[2].description +`
+                            <p> `+ product[2].cost + ' ' + product[2].currency + ` </p>
+                        </div>
+                        <div class="col-sm">
+                            <a href="product-info.html" class="list-group-item list-group-item-action">
+                                <img src="` + product[3].imgSrc + `" alt="` + product[3].description + `" class="img-thumbnail">
+                            </a>
+                            <h4 class="mb-1">`+ product[3].name +`</h4> 
+                            <small class="text-muted">` + currentProductArray[3].soldCount + ` artículos</small>
+                            </br>
+                            ` + product[3].description +`
+                            <p> `+ product[3].cost + ' ' + product[3].currency + ` </p>
                         </div>
                     </div>
-                </a>
-                ` 
+                </div>
+               
+                `    
             }
-
             document.getElementById("prod-list-container").innerHTML = htmlContentToAppend;
         }
     }
@@ -102,7 +132,6 @@ var ancho =$(window).width();
                 </a>
                 `
             }
-
             document.getElementById("prod-list-container").innerHTML = htmlContentToAppend;
         }
     }
@@ -111,10 +140,16 @@ var ancho =$(window).width();
         //aqui el codigo que se ejecutara cuando se redimencione la ventana
         alto=$(window).height();
         ancho=$(window).width();
-        showProductsList_redimen();
-        //alert("alto: "+alto+" ancho:"+ancho);
-        })
 
+        /*if(alto <= 989 && ancho <= 508){*/
+        if(alto < 1024 && ancho < 768){
+            showProductsList_redimen();
+        }else{
+            showProductsList();
+        }
+    })
+
+//Función que asigna la clase ocult en css para el diseño responsive de la barra de navegación
     function navResponsive(){
         var ancla = document.getElementsByClassName('nav-enlace');
         
@@ -149,7 +184,7 @@ var ancho =$(window).width();
         
         //Aqui el codigo que se ejecutara cuando se redimencione la ventana
         //Muestro las categorías ordenadas
-        if(alto <= 989 && ancho <= 508){
+        if(alto < 1024 && ancho < 768){
             showProductsList_redimen();
         }else{
             showProductsList();
@@ -187,7 +222,7 @@ var ancho =$(window).width();
 
             //Aqui el codigo que se ejecutara cuando se redimencione la ventana
             //Muestro las categorías ordenadas
-            if(alto <= 989 && ancho <= 508){
+            if(alto < 1024 && ancho < 768){
                 showProductsList_redimen();
             }else{
                 showProductsList();
@@ -216,7 +251,7 @@ var ancho =$(window).width();
 
             //Aqui el codigo que se ejecutara cuando se redimencione la ventana
             //Muestro las categorías ordenadas
-            if(alto <= 989 && ancho <= 508){
+            if(alto < 1024 && ancho < 768){
                 showProductsList_redimen();
             }else{
                 showProductsList();

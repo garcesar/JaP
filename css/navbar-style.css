@@ -1,6 +1,5 @@
 .nav-enlace{
     display: inline-block;
-    /*background: salmon;*/
     color:#fff;
     padding: 10px 30px;
     text-decoration: none;
@@ -13,21 +12,23 @@ nav{
 }
 
 .nav-button{
-    background-color: black;
+    background-color:#343a40;
     color: #fff;
     padding: 10px 0px;
-    border: 2px solid #fff;
+    border: 2px solid #343a40;
     display: none;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 600px) {
+    
     nav{
-        background: black;
         flex-direction: column;
     }
+    
     .nav-enlace{
         margin: 10px 0;
     }
+    
     .nav-boton{
         display: inline-block;
     }
